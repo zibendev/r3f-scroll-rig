@@ -11,6 +11,7 @@ interface IGlobalCanvas extends Omit<Props, 'children'> {
     globalRender?: boolean;
     globalPriority?: number;
     globalClearDepth?: boolean;
+    useWebgpu?: boolean;
 }
 export declare const GlobalCanvas: ({ children, onError, ...props }: IGlobalCanvas) => JSX.Element;
 export {};
