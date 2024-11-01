@@ -33,12 +33,14 @@ interface IGlobalCanvas extends Omit<Props, 'children'> {
   globalRender?: boolean
   globalPriority?: number
   globalClearDepth?: boolean
+  useWebgpu?: boolean
 }
 
 const GlobalCanvasImpl = ({
   children,
   as = Canvas,
   gl,
+  useWebgpu,
   style,
   orthographic,
   camera,
@@ -91,11 +93,12 @@ const GlobalCanvasImpl = ({
         manual: true,
       }}
       // Some sane defaults
-      gl={{
-        // https://blog.tojicode.com/2013/12/failifmajorperformancecaveat-with-great.html
-        failIfMajorPerformanceCaveat: true, // skip webgl if slow device
-        ...gl,
-      }}
+      gl={(useWebgpu
+        ? gl
+        : {
+          failIfMajorPerformanceCaveat: true, // skip webgl if slow device
+          ...gl,
+        })}
       // polyfill old iOS safari
       resize={{ scroll: false, debounce: 0, polyfill }}
       // default styles
