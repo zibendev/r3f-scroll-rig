@@ -1,2 +1,2 @@
-/// <reference types="react" />
-export declare const StickyScrollScene: ({ children, track, stickyLerp, fillViewport, ...props }: any) => JSX.Element;
+import React from 'react';
+export declare const StickyScrollScene: ({ children, track, stickyLerp, fillViewport, ...props }: any) => React.JSX.Element;

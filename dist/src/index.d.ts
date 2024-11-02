@@ -1,6 +1,7 @@
 import './styles/index.css';
 export { GlobalCanvas } from './components/GlobalCanvas';
 export { type ScrollSceneChildProps, ScrollScene } from './components/ScrollScene';
+export { type FrameSceneChildProps, FrameScene } from './components/FrameScene';
 export { type ViewportScrollSceneChildProps, ViewportScrollScene } from './components/ViewportScrollScene';
 export { UseCanvas } from './components/UseCanvas';
 export { useScrollRig } from './hooks/useScrollRig';

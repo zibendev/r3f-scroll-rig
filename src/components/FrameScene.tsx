@@ -10,7 +10,7 @@ import { DebugMesh } from './DebugMesh'
 import { useTracker } from '../hooks/useTracker'
 import type { ScrollState } from '../hooks/useTrackerTypes'
 
-export interface ScrollSceneChildProps {
+export interface FrameSceneChildProps {
   track: MutableRefObject<HTMLElement>
   margin: number
   priority: number
@@ -20,9 +20,9 @@ export interface ScrollSceneChildProps {
   scene: Scene
 }
 
-interface IScrollScene {
+interface IFrameScene {
   track: MutableRefObject<HTMLElement>
-  children: (state: ScrollSceneChildProps) => ReactNode
+  children: (state: FrameSceneChildProps) => ReactNode
   margin?: number
   inViewportMargin?: string
   inViewportThreshold?: number
@@ -41,7 +41,7 @@ interface IScrollScene {
  *
  * @author david@14islands.com
  */
-function ScrollScene({
+function FrameScene({
   track,
   children,
   margin = 0, // Margin outside scissor to avoid clipping vertex displacement (px)
@@ -55,7 +55,7 @@ function ScrollScene({
   priority = config.PRIORITY_SCISSORS,
   scene,
   ...props
-}: IScrollScene) {
+}: IFrameScene) {
   const globalScene = useThree((s) => s.scene)
   const contentRef = useRef<Group>(null)
   const [portalScene] = useState<Scene | null>(scene || (scissor ? new Scene() : null))
@@ -83,6 +83,7 @@ function ScrollScene({
   // RENDER FRAME
   useFrame(
     ({ gl, camera }) => {
+      console.log('render frame of FrameScene')
       if (!contentRef.current) return
 
       if (contentRef.current.visible) {
@@ -135,4 +136,4 @@ function ScrollScene({
   return portalScene ? createPortal(content, portalScene) : content
 }
 
-export { ScrollScene }
+export { FrameScene }

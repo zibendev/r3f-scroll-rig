@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 export declare const DebugMesh: ({ scale }: {
     scale: [x: number, y: number, z: number];
-}) => JSX.Element;
+}) => React.JSX.Element;

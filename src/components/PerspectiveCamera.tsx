@@ -1,11 +1,11 @@
 import React, { useRef, forwardRef, useMemo, useImperativeHandle } from 'react'
-import { useThree } from '@react-three/fiber'
+import { useThree, ThreeElements } from '@react-three/fiber'
 import { PerspectiveCamera as PerspectiveCameraImpl } from 'three'
 
 import { useLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
 import { useCanvasStore } from '../store'
 
-type Props = JSX.IntrinsicElements['perspectiveCamera'] & {
+type Props = ThreeElements['perspectiveCamera'] & {
   makeDefault?: boolean
   margin?: number
 }

@@ -1,11 +1,11 @@
 import React, { useRef, forwardRef, useMemo, useImperativeHandle } from 'react'
 import { OrthographicCamera as OrthographicCameraImpl } from 'three'
-import { useThree } from '@react-three/fiber'
+import { useThree, ThreeElements } from '@react-three/fiber'
 
 import { useLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
 import { useCanvasStore } from '../store'
 
-type Props = JSX.IntrinsicElements['orthographicCamera'] & {
+type Props = ThreeElements['orthographicCamera'] & {
   makeDefault?: boolean
   margin?: number
 }
