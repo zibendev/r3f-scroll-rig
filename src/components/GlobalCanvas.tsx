@@ -33,14 +33,14 @@ interface IGlobalCanvas extends Omit<Props, 'children'> {
   globalRender?: boolean
   globalPriority?: number
   globalClearDepth?: boolean
-  useWebgpu?: boolean
+  useWebGPU?: boolean
 }
 
 const GlobalCanvasImpl = ({
   children,
   as = Canvas,
   gl,
-  useWebgpu,
+  useWebGPU,
   style,
   orthographic,
   camera,
@@ -93,7 +93,7 @@ const GlobalCanvasImpl = ({
         manual: true,
       }}
       // Some sane defaults
-      gl={(useWebgpu
+      gl={(useWebGPU
         ? gl
         : {
           failIfMajorPerformanceCaveat: true, // skip webgl if slow device

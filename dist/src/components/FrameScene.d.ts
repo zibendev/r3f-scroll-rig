@@ -1,7 +1,7 @@
 import React, { MutableRefObject, ReactNode } from 'react';
 import { Scene } from 'three';
 import type { ScrollState } from '../hooks/useTrackerTypes';
-export interface ScrollSceneChildProps {
+export interface FrameSceneChildProps {
     track: MutableRefObject<HTMLElement>;
     margin: number;
     priority: number;
@@ -10,9 +10,9 @@ export interface ScrollSceneChildProps {
     inViewport: boolean;
     scene: Scene;
 }
-interface IScrollScene {
+interface IFrameScene {
     track: MutableRefObject<HTMLElement>;
-    children: (state: ScrollSceneChildProps) => ReactNode;
+    children: (state: FrameSceneChildProps) => ReactNode;
     margin?: number;
     inViewportMargin?: string;
     inViewportThreshold?: number;
@@ -30,6 +30,6 @@ interface IScrollScene {
  *
  * @author david@14islands.com
  */
-declare function ScrollScene({ track, children, margin, // Margin outside scissor to avoid clipping vertex displacement (px)
-inViewportMargin, inViewportThreshold, visible, hideOffscreen, scissor, debug, as, priority, scene, ...props }: IScrollScene): React.JSX.Element;
-export { ScrollScene };
+declare function FrameScene({ track, children, margin, // Margin outside scissor to avoid clipping vertex displacement (px)
+inViewportMargin, inViewportThreshold, visible, hideOffscreen, scissor, debug, as, priority, scene, ...props }: IFrameScene): React.JSX.Element;
+export { FrameScene };

@@ -1,5 +1,6 @@
 import React from 'react';
-type Props = JSX.IntrinsicElements['orthographicCamera'] & {
+import { ThreeElements } from '@react-three/fiber';
+type Props = ThreeElements['orthographicCamera'] & {
     makeDefault?: boolean;
     margin?: number;
 };
