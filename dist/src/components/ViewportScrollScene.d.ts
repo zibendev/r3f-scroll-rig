@@ -1,4 +1,4 @@
-import React, { MutableRefObject, ReactNode } from 'react';
+import { MutableRefObject, ReactNode } from 'react';
 import type { ScrollState } from '../hooks/useTrackerTypes';
 interface IViewportScrollScene {
     track: MutableRefObject<HTMLElement>;
@@ -23,5 +23,5 @@ export interface ViewportScrollSceneChildProps {
     inViewport: boolean;
 }
 declare function ViewportScrollScene({ track, margin, // Margin outside viewport to avoid clipping vertex displacement (px)
-inViewportMargin, inViewportThreshold, priority, ...props }: IViewportScrollScene): React.JSX.Element;
+inViewportMargin, inViewportThreshold, priority, ...props }: IViewportScrollScene): JSX.Element;
 export { ViewportScrollScene };

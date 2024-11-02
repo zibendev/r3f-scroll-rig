@@ -9,6 +9,7 @@ import { useScrollRig } from '../hooks/useScrollRig'
 import { DebugMesh } from './DebugMesh'
 import { useTracker } from '../hooks/useTracker'
 import type { ScrollState } from '../hooks/useTrackerTypes'
+import { useTrackerFrame } from '../hooks/useTrackerFrame'
 
 export interface FrameSceneChildProps {
   track: MutableRefObject<HTMLElement>
@@ -62,7 +63,7 @@ function FrameScene({
   const { requestRender, renderScissor } = useScrollRig()
   const globalRender = useCanvasStore((state) => state.globalRender)
 
-  const { bounds, scale, position, scrollState, inViewport } = useTracker(track, {
+  const { bounds, scale, position, scrollState, inViewport } = useTrackerFrame(track, {
     rootMargin: inViewportMargin,
     threshold: inViewportThreshold,
   })
@@ -83,7 +84,6 @@ function FrameScene({
   // RENDER FRAME
   useFrame(
     ({ gl, camera }) => {
-      console.log('render frame of FrameScene')
       if (!contentRef.current) return
 
       if (contentRef.current.visible) {

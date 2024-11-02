@@ -24,6 +24,15 @@ export type Bounds = Rect & {
   positiveYUpBottom: number
 }
 
+export interface TrackerFrame {
+  rect: Rect
+  scale: vec3
+  inViewport: boolean
+  bounds: Bounds
+  scrollState: ScrollState
+  position: vec3
+}
+
 export interface Tracker {
   rect: Rect
   scale: vec3
