@@ -10,6 +10,7 @@ import { PerspectiveCamera } from './PerspectiveCamera'
 import { OrthographicCamera } from './OrthographicCamera'
 
 import { GlobalChildren } from './GlobalChildren'
+import { GlobalFrame } from './GlobalFrame'
 import { GlobalRenderer } from './GlobalRenderer'
 import { CanvasErrorBoundary } from './CanvasErrorBoundary'
 
@@ -123,6 +124,8 @@ const GlobalCanvasImpl = ({
       {typeof children === 'function' ? children(<GlobalChildren />) : <GlobalChildren>{children}</GlobalChildren>}
 
       <ResizeManager />
+
+      <GlobalFrame />
     </As>
   )
 }

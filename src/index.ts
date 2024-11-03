@@ -12,6 +12,7 @@ export { useScrollRig } from './hooks/useScrollRig'
 export { useCanvas } from './hooks/useCanvas'
 export { useScrollbar } from './scrollbar/useScrollbar'
 export { useTracker } from './hooks/useTracker'
+export { useFrame } from './hooks/useFrame'
 
 // Utils hooks
 export { useImageAsTexture } from './hooks/useImageAsTexture'

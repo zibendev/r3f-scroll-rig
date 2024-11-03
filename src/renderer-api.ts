@@ -10,7 +10,8 @@ const viewportSize = new Vector2()
 // Flag that we need global rendering (full screen)
 export const requestRender = (layers = [0]) => {
   useCanvasStore.getState().globalRenderQueue = useCanvasStore.getState().globalRenderQueue || [0]
-  useCanvasStore.getState().globalRenderQueue = [...(useCanvasStore.getState().globalRenderQueue || []), ...layers]
+  useCanvasStore.getState().
+    globalRenderQueue = [...(useCanvasStore.getState().globalRenderQueue || []), ...layers]
 }
 
 export const renderScissor = ({

@@ -15,6 +15,9 @@ interface ScrollRigStore {
   isCanvasAvailable: boolean
   hasSmoothScrollbar: boolean
   canvasChildren: Record<string, any | undefined>
+  frameCallbacks: Array<(state: any, delta: number) => void>
+  addFrameCallback: (callback: (state: any, delta: number) => void) =>void
+  removeFrameCallback: (callback: (state: any, delta: number) => void) =>void
   updateCanvas: (key: string, newProps: any) => void
   renderToCanvas: (key: string, mesh: any, props: any) => void
   removeFromCanvas: (key: string, dispose: boolean) => void
@@ -48,6 +51,18 @@ const useCanvasStore = create<ScrollRigStore>((set) => ({
 
   // map of all components to render on the global canvas
   canvasChildren: {},
+  frameCallbacks: [],
+  addFrameCallback: (callback) =>
+    set(({ frameCallbacks }) => {
+      console.log('Adding to array (store.ts)')
+      const newArray = [...frameCallbacks, callback]
+      return { frameCallbacks: newArray}
+    }),
+  removeFrameCallback: (callback) =>
+    set(({ frameCallbacks }) => {
+      frameCallbacks.splice(frameCallbacks.indexOf(callback), 1)
+      return { frameCallbacks: frameCallbacks }
+    }),
 
   // add component to canvas
   renderToCanvas: (key, mesh, props = {}) =>
@@ -124,6 +139,7 @@ const useCanvasStore = create<ScrollRigStore>((set) => ({
   __lenis: undefined,
   scrollTo: () => {},
   onScroll: () => () => {},
+
 }))
 
 export { useCanvasStore }

@@ -11,6 +11,9 @@ interface ScrollRigStore {
     isCanvasAvailable: boolean;
     hasSmoothScrollbar: boolean;
     canvasChildren: Record<string, any | undefined>;
+    frameCallbacks: Array<(state: any, delta: number) => void>;
+    addFrameCallback: (callback: (state: any, delta: number) => void) => void;
+    removeFrameCallback: (callback: (state: any, delta: number) => void) => void;
     updateCanvas: (key: string, newProps: any) => void;
     renderToCanvas: (key: string, mesh: any, props: any) => void;
     removeFromCanvas: (key: string, dispose: boolean) => void;
