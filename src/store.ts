@@ -54,7 +54,6 @@ const useCanvasStore = create<ScrollRigStore>((set) => ({
   frameCallbacks: [],
   addFrameCallback: (callback) =>
     set(({ frameCallbacks }) => {
-      console.log('Adding to array (store.ts)')
       const newArray = [...frameCallbacks, callback]
       return { frameCallbacks: newArray}
     }),

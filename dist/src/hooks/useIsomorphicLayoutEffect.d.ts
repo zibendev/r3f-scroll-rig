@@ -1,3 +1,3 @@
-import { useLayoutEffect as vanillaUseLayoutEffect } from 'react';
+import { useEffect } from 'react';
 export declare const isBrowser: boolean;
-export declare const useLayoutEffect: typeof vanillaUseLayoutEffect;
+export declare const useLayoutEffect: typeof useEffect;
